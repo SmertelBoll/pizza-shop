@@ -26,3 +26,21 @@ body {
    align-items: center;
    margin-bottom: 30px;
 }
+
+.home {
+   &__label {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 39px;
+      letter-spacing: 0.01em;
+      color: #000000;
+      margin-bottom: 35px;
+   }
+
+   &__pizzas {
+      display: flex;
+      flex-wrap: wrap;
+      // margin: 0 -35px;
+      justify-content: space-between;
+   }
+}
