@@ -73,7 +73,10 @@
 
       padding: 10px 0px 10px 14px;
 
+      transition: all 0.1s ease 0s;
+
       &:hover {
+         transition: all 0.1s ease 0s;
          font-weight: 700;  
          color: #FE5F1E;
       }
