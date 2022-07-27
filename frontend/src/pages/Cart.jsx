@@ -4,7 +4,7 @@ import CartBlock from '../components/CartBlock'
 function Cart() {
    return (
       <div className="cart">
-         {false
+         {true
             ? <div>
                <div className="cart__header">
                   <div className="cart__img-and-tittle">

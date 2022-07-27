@@ -140,3 +140,21 @@ body {
       }
    }
 }
+
+@media (max-width: 1024px) {
+   .content {
+      padding: 30px;
+   }
+
+   .home {
+      &__pizzas {
+         justify-content: space-around;
+      }
+   }
+}
+
+@media (max-width: 768px) {
+   body {
+      padding: 10px;
+   }
+}

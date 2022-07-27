@@ -30,3 +30,23 @@
       color: #7B7B7B;   
    }
 }
+
+
+@media (max-width: 1024px) {
+   .header {
+      padding: 30px;
+   }
+}
+
+@media (max-width: 530px) {
+   .header__description {
+      display: none;
+   }
+}
+
+@media (max-width: 480px) {
+   .header {
+      justify-content: center;
+      padding: 20px;
+   }
+}

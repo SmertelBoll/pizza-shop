@@ -10,8 +10,8 @@ function App() {
       <div className="wrapper">
          <Header />
          <div className="content">
-            {/* <Home /> */}
-            <Cart />
+            <Home />
+            {/* <Cart /> */}
          </div>
       </div>
 
