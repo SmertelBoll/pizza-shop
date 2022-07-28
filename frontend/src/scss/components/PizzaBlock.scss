@@ -130,3 +130,17 @@
       }
    }
 }
+
+@media (max-width: 350px) {
+   .pizza-block {
+      width: 260px;
+      margin-bottom: 45px;
+      &__price-and-button {
+         flex-direction: column;
+      }
+
+      &__price {
+         margin-bottom: 10px;
+      }
+   }
+}

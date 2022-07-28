@@ -43,19 +43,5 @@
       left: 0px;
       justify-content: center;
       z-index: 10;
-
-      &::after, &::before {    // щоб button не вилізав за wrapper. Поки не знаю як зробити це красивіше
-         content: '';
-         display: block;
-         width: 12px;
-         height: 100%;
-         background-color: #ffdf8c;
-         position: absolute;
-         right: -2px;
-      }
-
-      &::before {
-         left: -2px;
-      }
    }
 }

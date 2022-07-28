@@ -19,10 +19,14 @@ function SortPopup() {
          <button className="sort-popup__label" onClick={toggleVisiblePopup}>{activeLabel}</button>
          <ul className={`sort-popup__popup ${visiblePopup && 'sort-popup__popup-active'}`}>
             {
-               sortLabel.map((name) => (
-                  activeLabel === name
-                     ? <li className="sort-popup__popup-item sort-popup__item-active">{name}</li>
-                     : <li className="sort-popup__popup-item">{name}</li>
+               sortLabel.map((name, index) => (
+                  <li
+                     className={`sort-popup__popup-item ${activeLabel === name ? 'sort-popup__item-active' : ''} `}
+                     key={`${name}_${index}`}
+                     onClick={() => {
+                        setActiveLabel(sortLabel[index])
+                     }}
+                  >{name}</li>
                ))
             }
          </ul>
