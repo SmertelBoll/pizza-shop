@@ -92,8 +92,10 @@
    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 530px) {
    .sort-popup {
+      padding-left: 15px;
+      
       &__label {
          font-size: 16px;
       }

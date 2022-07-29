@@ -43,5 +43,9 @@
       left: 0px;
       justify-content: center;
       z-index: 10;
+
+      &__price, &__number {
+         font-size: 20px;
+      }
    }
 }
