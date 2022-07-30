@@ -3,36 +3,47 @@ import CartBlock from '../components/CartBlock'
 
 function Cart() {
    return (
-      <div class="cart">
+      <div className="cart">
          {true
             ? <div>
-               <div class="cart__header">
-                  <div class="cart__img-and-tittle">
-                     <img src="img/cart_cart-icon.svg" alt="" class="cart__img-cart" width={29} height={29} />
-                     <h2 class="cart__tittle">Корзина</h2>
+               <div className="cart__header">
+                  <div className="cart__img-and-tittle">
+                     <img src="img/cart_cart-icon.svg" alt="" className="cart__img-cart" width={29} height={29} />
+                     <h2 className="cart__tittle">Корзина</h2>
                   </div>
-                  <button class="cart__delete-cart">
-                     <img src="img/cart_trash-icon.svg" alt="" class="cart__delete-cart-icon" />
-                     <span class="cart__delete-cart-text">Очистити корзину</span>
+                  <button className="cart__delete-cart">
+                     <img src="img/cart_trash-icon.svg" alt="" className="cart__delete-cart-icon" />
+                     <span className="cart__delete-cart-text">Очистити корзину</span>
                   </button>
                </div>
-               <div class="cart__cart-block">
+               <div className="cart__cart-block">
                   <CartBlock />
                   <CartBlock />
                   <CartBlock />
                </div>
+               <div className="cart__number-and-price">
+                  <div className="cart__number">Всього піц: <span>3 шт.</span></div>
+                  <div className="cart__price">Сума заказа: <span>999 ₴</span></div>
+               </div>
+               <nav className="cart__navigation">
+                  <button className="cart__back-home cart__button">
+                     <img src="img/cart_back-icon.svg" alt="" />
+                     <span>Повернутись назад</span>
+                  </button>
+                  <button className="cart__buy cart__button">Оплатити зараз</button>
+               </nav>
             </div>
 
-            : <div class="cart-empty">
-               <h2 class="cart-empty__header">Корзина пуста 😕</h2>
-               <div class="cart-empty__information">
+            : <div className="cart-empty">
+               <h2 className="cart-empty__header">Корзина пуста 😕</h2>
+               <div className="cart-empty__information">
                   <p>Ймовірно, ви не заказували ще піцу</p>
-                  <p>Для того, щоб заказати піцу, перейдуть на головну сторінку</p>
+                  <p>Для того, щоб заказати піцу, перейдіть на головну сторінку</p>
                </div>
 
-               <img src="img/cart_empty-cart.svg" alt="" class="cart-empty__empty-img" width="300" height="255" />
+               <img src="img/cart_empty-cart.svg" alt="" className="cart-empty__empty-img" width="300" height="255" />
                <br />
-               <button class="cart-empty__button">
+               <button className="cart-empty__button">
                   <span>Повернутись назад</span>
                </button>
             </div>

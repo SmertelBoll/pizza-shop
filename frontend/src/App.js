@@ -8,9 +8,9 @@ import './scss/App.scss';
 
 function App() {
    return (
-      <div class="wrapper">
+      <div className="wrapper">
          <Header />
-         <div class="content">
+         <div className="content">
             {/* <Home /> */}
             <Cart />
          </div>
