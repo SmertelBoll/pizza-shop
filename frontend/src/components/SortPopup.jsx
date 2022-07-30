@@ -10,18 +10,18 @@ function SortPopup() {
    }
 
    return (
-      <div class="sort-popup">
+      <div className="sort-popup">
          {
             visiblePopup
-               ? <b class="sort-popup__sort-by sort-popup__triangle-inactive">Сортувати по: </b>
-               : <b class="sort-popup__sort-by sort-popup__triangle-active">Сортувати по: </b>
+               ? <b className="sort-popup__sort-by sort-popup__triangle-inactive">Сортувати по: </b>
+               : <b className="sort-popup__sort-by sort-popup__triangle-active">Сортувати по: </b>
          }
-         <button class="sort-popup__label" onClick={toggleVisiblePopup}>{activeLabel}</button>
-         <ul class={`sort-popup__popup ${visiblePopup && 'sort-popup__popup-active'}`}>
+         <button className="sort-popup__label" onClick={toggleVisiblePopup}>{activeLabel}</button>
+         <ul className={`sort-popup__popup ${visiblePopup && 'sort-popup__popup-active'}`}>
             {
                sortLabel.map((name, index) => (
                   <li
-                     class={`sort-popup__popup-item ${activeLabel === name ? 'sort-popup__item-active' : ''} `}
+                     className={`sort-popup__popup-item ${activeLabel === name ? 'sort-popup__item-active' : ''} `}
                      key={`${name}_${index}`}
                      onClick={() => {
                         setActiveLabel(sortLabel[index])

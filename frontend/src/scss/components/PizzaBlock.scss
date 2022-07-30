@@ -25,7 +25,7 @@
    }
    
    &__type{
-      flex-basis: 50%;
+      width: fill;
       font-weight: 700;
       font-size: 14px;
       line-height: 17px;
@@ -33,7 +33,7 @@
       color: #2C2C2C;
 
       padding: 8px 0px;
-      background: #FFFFFF;
+      // background: #FFFFFF;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
       border-radius: 5px;
 
@@ -45,11 +45,15 @@
 
       transition: all 0.2s ease 0s;
 
-      &:hover {
+      &:hover:not(.pizza-block__type-active) {
          background: rgba(255, 255, 255, 0.3);
 
          transition: all 0.2s ease 0s;
       }
+   }
+
+   &__type-active {
+      background: #FFFFFF;
    }
    
    &__price-and-button{

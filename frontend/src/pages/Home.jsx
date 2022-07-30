@@ -5,13 +5,13 @@ import SortPopup from '../components/SortPopup'
 
 function Home() {
    return (
-      <div class="home">
-         <div class="home__sort">
+      <div className="home">
+         <div className="home__sort">
             <Category />
             <SortPopup />
          </div>
-         <h2 class="home__label">Всі піци</h2>
-         <div class="home__pizzas">
+         <h2 className="home__label">Всі піци</h2>
+         <div className="home__pizzas">
 
             <PizzaBlock />
             <PizzaBlock />
