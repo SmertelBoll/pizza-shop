@@ -14,10 +14,16 @@ body {
    background-color: #fff;
    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.03);
    border-radius: 10px;
+
+   min-height: 96vh;
+   display: flex;
+   flex-direction: column;
 }
 
 .content {
    padding: 40px 50px;
+   flex: 1 1 auto;
+   
 }
 
 .home {
@@ -194,6 +200,10 @@ body {
                background-color: #d7d7d753;
          }
       }
+   }
+
+   .content {
+      height: 100%;
    }
 }
 
