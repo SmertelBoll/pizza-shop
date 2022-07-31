@@ -53,16 +53,20 @@
       align-items: center;
    }
 
-   &__minus-pizza, &__plus-pizza {
+   &__minus-pizza, &__plus-pizza, &__delete-pizza {
       cursor: pointer;
 
+      path, circle {
+         transition: all 0.3s ease 0s;
+      }
+   }
+
+   &__minus-pizza, &__plus-pizza {
       &:hover {
          circle {
-            transition: all 0.3s ease 0s;
             fill: #FE5F1E;
          }
          path {
-            transition: all 0.3s ease 0s;
             fill: #FFFFFF;
          }
       }
@@ -86,16 +90,12 @@
    }
 
    &__delete-pizza {
-      cursor: pointer;
-
       &:hover {
          circle {
-            transition: all 0.3s ease 0s;
             fill: #282828;
             stroke: #282828;
          }
          path {
-            transition: all 0.3s ease 0s;
             fill: #FFFFFF;
          }
       }

@@ -87,10 +87,26 @@ body {
       align-items: flex-end;
       background-color: #FFFFFF;
       padding: 5px;
+
+      &:hover {
+         .cart__delete-cart-text {
+            color: #282828;
+         }
+
+         .cart__delete-cart-icon {
+            path {
+               stroke: #282828;
+            }
+         }
+      }
    }
 
    &__delete-cart-icon {
       margin-right: 11px;
+
+      path {
+         transition: all 0.3s ease 0s;
+      }
    }
 
    &__delete-cart-text {
@@ -98,9 +114,12 @@ body {
       font-size: 16px;
       line-height: 19px;
       color: #B6B6B6;
+
+      transition: all 0.3s ease 0s;
+
    }
 
-   &__cart-block {
+   &__cart-blocks {
       :last-child {            //? воно звертається також до багатьох іншиї елементів. Ще не придумав як це пофіксити
          border-bottom: none;  
       }
@@ -162,7 +181,6 @@ body {
       }
 
       &:hover {
-         transition: all 0.3s ease 0s;
          background: #282828;
          border: #282828;
 
@@ -173,7 +191,6 @@ body {
 
          .cart__back-home-img {
             path {
-               transition: all 0.3s ease 0s;
                stroke: #FFFFFF;
             }
          }
@@ -196,7 +213,6 @@ body {
       background: #FFFFFF;
 
       &:hover {
-         transition: all 0.3s ease 0s;
          color: #FE5F1E;
          background: #FFFFFF;
          background: #FE5F1E;

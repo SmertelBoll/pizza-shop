@@ -9,7 +9,7 @@
    font-weight: 400;
    font-size: 16px;
    line-height: 19px;
-   color: #3b3a3a;
+   color: #282828;
 
    &__logo-and-text {
       display: flex;
@@ -30,8 +30,27 @@
 
    &__info-item {
       cursor: pointer;
-      border-bottom: 1px solid #3b3a3a;
       white-space: nowrap;
+      transition: all 0.3s ease 0s;
+      position: relative;
+
+      &::after {
+         content: '';
+         display: block;
+         position: absolute;
+         left: 0; 
+         width: 30%;
+         height: 1.5px;
+         background-color: #282828;
+         transition: width 0.3s ease-out;
+      }
+
+      &:hover, &:focus {
+         &:after {
+            width: 100%;
+         }
+
+      }
    }
 
    &__contact {
