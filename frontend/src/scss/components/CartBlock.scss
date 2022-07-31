@@ -59,7 +59,11 @@
       &:hover {
          circle {
             transition: all 0.3s ease 0s;
-            fill: #dc6b3e21;
+            fill: #FE5F1E;
+         }
+         path {
+            transition: all 0.3s ease 0s;
+            fill: #FFFFFF;
          }
       }
    }
@@ -87,7 +91,12 @@
       &:hover {
          circle {
             transition: all 0.3s ease 0s;
-            fill: #d7d7d753;
+            fill: #282828;
+            stroke: #282828;
+         }
+         path {
+            transition: all 0.3s ease 0s;
+            fill: #FFFFFF;
          }
       }
    }

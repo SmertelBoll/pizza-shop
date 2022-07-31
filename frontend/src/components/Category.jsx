@@ -27,6 +27,7 @@ function Category() {
          </div>
 
          <div className="category__small-screen">
+            <span className="category__label">Показати:</span>
             <button className="category__item category__active" onClick={toggleVisiblePopup}>{activeLabel}</button>
 
             <div className={`category__popup ${visiblePopup ? 'category__popup-active' : ''}`}>

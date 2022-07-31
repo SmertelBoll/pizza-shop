@@ -27,7 +27,9 @@ function Cart() {
                </div>
                <nav className="cart__navigation">
                   <button className="cart__back-home cart__button">
-                     <img src="img/cart_back-icon.svg" alt="" />
+                     <svg className='cart__back-home-img' width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 13L1 6.93015L6.86175 1" stroke="#898989" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                     </svg>
                      <span>Повернутись назад</span>
                   </button>
                   <button className="cart__buy cart__button">Оплатити зараз</button>
