@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Cart from './pages/Cart';
 import Home from './pages/Home';
 
+import { Route, Routes } from 'react-router-dom';
+
 import './scss/App.scss';
 
 function App() {
@@ -11,8 +13,10 @@ function App() {
       <div className="wrapper">
          <Header />
          <div className="content">
-            <Home />
-            {/* <Cart /> */}
+            <Routes>
+               <Route path='/' element={<Home />} />
+               <Route path='cart' element={<Cart />} />
+            </Routes>
          </div>
          <Footer />
       </div>
