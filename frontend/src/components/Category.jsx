@@ -10,27 +10,47 @@ function Category() {
       setVisiblePopup(!visiblePopup)
    }
    return (
-      <div className="category">
-         <div className="category__without-poput">
-            {
-               category.map((name, index) => (
-                  <button
-                     className={`category__item ${category[index] === activeLabel ? 'category__active' : ''}`}
-                     key={`${name}_${index}`}
-                     onClick={() => {
-                        setActiveLabel(category[index])
-                     }}
-                  >{name}</button>
-               )
-               )
-            }
-         </div>
+      // <div className="category">
+      //    <div className="category__without-poput">
+      //       {
+      //          category.map((name, index) => (
+      //             <button
+      //                className={`category__item ${category[index] === activeLabel ? 'category__active' : ''}`}
+      //                key={`${name}_${index}`}
+      //                onClick={() => {
+      //                   setActiveLabel(category[index])
+      //                }}
+      //             >{name}</button>
+      //          )
+      //          )
+      //       }
+      //    </div>
 
+      //    <div className="category__small-screen">
+      //       <span className="category__label">Показати:</span>
+      //       <button className="category__item category__active" onClick={toggleVisiblePopup}>{activeLabel}</button>
+
+      //       <div className={`category__popup ${visiblePopup ? 'category__popup-active' : ''}`}>
+      //          {
+      //             category.map((name, index) => (
+      //                <button
+      //                   className={`category__item ${category[index] === activeLabel ? 'category__active' : ''}`}
+      //                   key={`${name}_${index}`}
+      //                   onClick={() => {
+      //                      setActiveLabel(category[index])
+      //                   }}
+      //                >{name}</button>
+      //             ))
+      //          }
+      //       </div>
+      //    </div>
+      // </div >
+      <div className="category">
          <div className="category__small-screen">
             <span className="category__label">Показати:</span>
-            <button className="category__item category__active" onClick={toggleVisiblePopup}>{activeLabel}</button>
+            <button className="category__item category__active category__first-button" onClick={toggleVisiblePopup}>{activeLabel}</button>
 
-            <div className={`category__popup ${visiblePopup ? 'category__popup-active' : ''}`}>
+            <div className={`category__popup ${visiblePopup ? 'category__popup-active' : 'category__popup-inactive'}`}>
                {
                   category.map((name, index) => (
                      <button
@@ -44,8 +64,8 @@ function Category() {
                }
             </div>
          </div>
-
       </div >
+
    )
 }
 

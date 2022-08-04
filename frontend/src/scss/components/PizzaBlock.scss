@@ -1,9 +1,12 @@
+.wrapper-piza-block {
+   display: flex;
+   justify-content: center;
+}
+
 .pizza-block {
    width: 280px;
    text-align: center;
-   margin: 0px 10px 65px;
-   // margin-bottom: 65px;
-
+   
    &__img {
       margin-bottom: 10px;
    }
@@ -15,6 +18,7 @@
       letter-spacing: 0.01em;
       color: #000000;
       margin-bottom: 20px;
+      white-space: nowrap;
    }
    
    &__choice-types{
@@ -34,7 +38,6 @@
       color: #2C2C2C;
 
       padding: 8px 0px;
-      // background: #FFFFFF;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
       border-radius: 5px;
 
@@ -139,7 +142,6 @@
 @media (max-width: 350px) {
    .pizza-block {
       width: 260px;
-      margin-bottom: 45px;
       &__price-and-button {
          flex-direction: column;
       }
