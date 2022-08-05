@@ -1,8 +1,32 @@
 import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { addPizzasFromHome } from '../redux/slices/cartSlice';
+
 
 function PizzaBlock({ id, imageUrl, price, title, types }) {
-   let type = ["тонка", "традиційна"]
+   const dispatch = useDispatch()
+   const type = ["тонка", "традиційна"]
+
+   let addedPizza = useSelector(state => state.cart.itemsCart[id])
+   let numberOfPizza = 0
+
+   if (addedPizza) {
+      Object.keys(addedPizza).map(type => (
+         numberOfPizza += addedPizza[type].count
+      ))
+   }
+
    const [activeType, setActiveType] = useState(types[0])
+
+   const addToCart = () => {
+      dispatch(addPizzasFromHome({
+         id,
+         imageUrl,
+         price,
+         title,
+         type: activeType,
+      }))
+   }
 
    return (
       <div className="wrapper-piza-block">
@@ -24,9 +48,9 @@ function PizzaBlock({ id, imageUrl, price, title, types }) {
             </div>
             <div className="pizza-block__price-and-button">
                <div className="pizza-block__price">від {price} ₴</div>
-               <button className="pizza-block__button">
+               <button className="pizza-block__button" onClick={addToCart}>
                   <span className="pizza-block__button-text">Добавити</span>
-                  <div className="pizza-block__button-counter"><span>0</span></div>
+                  <div className="pizza-block__button-counter"><span>{numberOfPizza}</span></div>
                </button>
             </div>
          </div>
