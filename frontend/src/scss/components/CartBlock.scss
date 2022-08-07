@@ -56,6 +56,9 @@
 
    &__minus-pizza, &__plus-pizza, &__delete-pizza {
       cursor: pointer;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
 
       path, circle {
          transition: all 0.3s ease 0s;
@@ -69,6 +72,25 @@
          }
          path {
             fill: #FFFFFF;
+         }
+      }
+   }
+
+   &__minus-pizza-disabled {
+      cursor: auto;
+      circle {
+         stroke: #D7D7D7;
+      }
+      path {
+         fill: #D7D7D7;
+      }
+
+      &:hover {
+         circle {
+            fill: #FFFFFF;
+         }
+         path {
+            fill: #D7D7D7;
          }
       }
    }

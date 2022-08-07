@@ -8,6 +8,7 @@ import axios from 'axios'
 
 const initialState = {
    items: [],
+   isLoaded: false,
 }
 
 export const pizzaSlice = createSlice({
@@ -15,7 +16,8 @@ export const pizzaSlice = createSlice({
    initialState,
    reducers: {
       setItems: (state, action) => {
-         state.items = action.payload
+         state.items = action.payload;
+         state.isLoaded = true;
       },
       // extraReducers: {
       //    [fetchPizza]: (state, action) => {

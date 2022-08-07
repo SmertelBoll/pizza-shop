@@ -6,7 +6,7 @@ import Home from './pages/Home';
 
 import axios from 'axios'
 
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 import './scss/App.scss';
 import { useSelector, useDispatch } from 'react-redux';
@@ -18,6 +18,11 @@ function App() {
    const items = useSelector(state => state.pizza.items)
    const categoryId = useSelector(state => state.filter.categoryId)
    const sortBy = useSelector(state => state.filter.sortBy.backendName)
+
+   const location = useLocation();
+   useEffect(() => {
+      document.documentElement.scrollTo(0, 0);
+   }, [location.pathname]);
 
    useEffect(() => {
       fetch(`http://626d16545267c14d5677d9c2.mockapi.io/items?${categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${sortBy}`)
