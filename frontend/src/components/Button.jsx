@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { selectCart } from '../redux/slices/cartSlice';
 
 
 function Button() {
-   const { totalCount, totalPrice } = useSelector(state => state.cart)
+   const { totalCount, totalPrice } = useSelector(selectCart)
 
    return (
       <Link to="cart">

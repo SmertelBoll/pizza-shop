@@ -21,7 +21,8 @@ export const filterSlice = createSlice({
    },
 })
 
-// Action creators are generated for each case reducer function
+export const selectFilterCategoryId = state => state.filter.categoryId
+
 export const { setCategory, setSort } = filterSlice.actions
 
 export default filterSlice.reducer

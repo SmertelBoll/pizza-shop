@@ -262,6 +262,30 @@ body {
    }
 }
 
+.non-found {
+   text-align: center;
+   padding-top: 150px;
+
+
+   &__header {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 39px;
+      letter-spacing: 0.01em;
+      color: #000000;
+      margin-bottom: 10px;
+   }
+
+   &__information {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 145.4%;
+      letter-spacing: 0.01em;
+      color: #777777;
+      margin-bottom: 47px;
+   }
+}
+
 
 @media (max-width: 1024px) {
    .content {

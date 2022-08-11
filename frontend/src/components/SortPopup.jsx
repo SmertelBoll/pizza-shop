@@ -36,11 +36,17 @@ function SortPopup() {
    }
 
    React.useEffect(() => {
-      document.body.addEventListener('click', event => {
+      const catchClickOutside = event => {
          if (!event.path.includes(sortRef.current)) {
             setVisiblePopup(false)
          }
-      })
+
+      }
+      document.body.addEventListener('click', catchClickOutside)
+
+      return () => {    // виконується коли компонент демонтується
+         document.body.removeEventListener('click', catchClickOutside)
+      }
    }, [])
 
    return (

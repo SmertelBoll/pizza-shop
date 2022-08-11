@@ -10,27 +10,30 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 
 import './scss/App.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { setItems } from './redux/slices/pizzaSlice';
+import { fetchPizzas } from './redux/slices/pizzaSlice';
+import { selectFilterCategoryId } from './redux/slices/filterSlice';
+import NonFound from './pages/NonFound';
 
 function App() {
    const dispatch = useDispatch()
 
    const items = useSelector(state => state.pizza.items)
-   const categoryId = useSelector(state => state.filter.categoryId)
+   const categoryId = useSelector(selectFilterCategoryId)
    const sortBy = useSelector(state => state.filter.sortBy.backendName)
+
 
    const location = useLocation();
    useEffect(() => {
       document.documentElement.scrollTo(0, 0);
    }, [location.pathname]);
 
+   const getPizzas = async () => {
+      dispatch(fetchPizzas({ categoryId, sortBy }))
+   }
+
+
    useEffect(() => {
-      fetch(`http://626d16545267c14d5677d9c2.mockapi.io/items?${categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${sortBy}`)
-         .then(res => {
-            return res.json()
-         }).then(arr => {
-            dispatch(setItems(arr))
-         })
+      getPizzas()
    }, [categoryId, sortBy])
 
    return (
@@ -40,6 +43,7 @@ function App() {
             <Routes>
                <Route path='/' element={<Home items={items} />} />
                <Route path='cart' element={<Cart />} />
+               <Route path='*' element={<NonFound />} />
             </Routes>
          </div>
          <Footer />

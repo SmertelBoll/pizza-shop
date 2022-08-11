@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { setCategory } from '../redux/slices/filterSlice';
+import { selectFilterCategoryId, setCategory } from '../redux/slices/filterSlice';
 
 function Category() {
    const dispatch = useDispatch()
@@ -14,14 +14,20 @@ function Category() {
    }
 
    React.useEffect(() => {
-      document.body.addEventListener('click', event => {
+      const catchClickOutside = event => {
          if (!event.path.includes(categoryRef.current)) {
             setVisiblePopup(false)
          }
-      })
+
+      }
+      document.body.addEventListener('click', catchClickOutside)
+
+      return () => {    // виконується коли компонент демонтується
+         document.body.removeEventListener('click', catchClickOutside)
+      }
    }, [])
 
-   const activeLabelId = useSelector(state => state.filter.categoryId)
+   const activeLabelId = useSelector(selectFilterCategoryId)
 
    const setActiveLabelId = (id) => {
       dispatch(setCategory(id))

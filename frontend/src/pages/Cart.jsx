@@ -2,12 +2,12 @@ import React from 'react'
 import CartBlock from '../components/CartBlock'
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeAllPizzas } from '../redux/slices/cartSlice';
+import { removeAllPizzas, selectCart } from '../redux/slices/cartSlice';
 
 
 function Cart() {
    const dispatch = useDispatch()
-   const { itemsCart, totalCount, totalPrice } = useSelector(state => state.cart)
+   const { itemsCart, totalCount, totalPrice } = useSelector(selectCart)
 
    const deleteAllPizzas = () => {
       if (window.confirm('Ви впевнені що хочете очистити корзину?')) {
