@@ -17,7 +17,6 @@ const Cart: React.FC = () => {
          dispatch(removeAllPizzas())
       }
    }
-   console.log(itemsCart);
 
    return (
       <div className="cart">

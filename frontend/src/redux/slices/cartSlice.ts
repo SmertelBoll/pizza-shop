@@ -1,3 +1,4 @@
+import { getCartFromLocalStorage, getCountFromLocalStorage, getPriceFromLocalStorage } from './../../utils/getInfoFromLS';
 import { RootState } from './../store';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
@@ -20,9 +21,9 @@ interface CartSliceType {
 }
 
 const initialState: CartSliceType = {
-   itemsCart: {},  // { id1: { t0: {imageUrl, price, title, count}, t1: {} },    id2: { t0: {}, t1: {} }, }    t - type
-   totalCount: 0,
-   totalPrice: 0,
+   itemsCart: getCartFromLocalStorage(),  // { id1: { t0: {imageUrl, price, title, count}, t1: {} },    id2: { t0: {}, t1: {} }, }    t - type
+   totalCount: getCountFromLocalStorage(),
+   totalPrice: getPriceFromLocalStorage(),
 }
 
 const calculationPriceAndCount = (state: CartSliceType) => {

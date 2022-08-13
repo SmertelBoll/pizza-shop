@@ -10,13 +10,13 @@ const rootElement = document.getElementById('root')
 if (rootElement) {
    const root = ReactDOM.createRoot(rootElement);
    root.render(
-      <React.StrictMode>
-         <BrowserRouter>
-            <Provider store={store}>
-               <App />
-            </Provider>
-         </BrowserRouter>
-      </React.StrictMode>
+      // <React.StrictMode>
+      <BrowserRouter>
+         <Provider store={store}>
+            <App />
+         </Provider>
+      </BrowserRouter>
+      // </React.StrictMode>
    );
 }
 

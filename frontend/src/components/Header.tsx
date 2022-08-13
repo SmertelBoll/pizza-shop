@@ -9,22 +9,21 @@ import { RootState } from '../redux/store';
 
 
 const Header: React.FC = () => {
-   // const itemsCart = useSelector((state: RootState) => state.cart.itemsCart)
-   // const isMounted = React.useRef(false)
+   const { itemsCart, totalCount, totalPrice } = useSelector((state: RootState) => state.cart)
+   const isMounted = React.useRef(false)
 
    let location = useLocation();
    let isButton = location.pathname !== '/cart' ? true : false;
 
-   // React.useEffect(() => {
-   //    // if (isMounted.current) {
-   //    const json = JSON.stringify(itemsCart)
-   //    localStorage.setItem('cart', json)
-   //    console.log('localstorage')
+   React.useEffect(() => {
+      if (isMounted.current) {
+         localStorage.setItem('cart', JSON.stringify(itemsCart))
+         localStorage.setItem('count', JSON.stringify(totalCount))
+         localStorage.setItem('price', JSON.stringify(totalPrice))
+      }
+      isMounted.current = true;
 
-   //    // }
-   //    isMounted.current = true;
-
-   // }, [itemsCart])
+   }, [itemsCart])
 
    return (
       <header className="header">
