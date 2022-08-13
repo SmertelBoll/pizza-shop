@@ -1,24 +1,31 @@
 import React from 'react';
-import { addOnePizza, removeOnePizza, removeTypePizza } from '../redux/slices/cartSlice';
+import { addOnePizza, IdAndTypeOfItem, removeOnePizza, removeTypePizza } from '../redux/slices/cartSlice';
 import { useDispatch } from 'react-redux';
 
 
-function CartBlock({ id, imageUrl, price, title, type, count }) {
+type CartBlockProps = {
+   id: string,
+   imageUrl: string,
+   price: number,
+   title: string,
+   type: string,
+   count: number,
+}
+
+const CartBlock: React.FC<CartBlockProps> = ({ id, imageUrl, price, title, type, count }) => {
    const dispatch = useDispatch()
    const types = ['тонке', 'традиційне']
 
-   const plusOnePizzas = (obj) => {
+   const plusOnePizzas = (obj: IdAndTypeOfItem) => {
       dispatch(addOnePizza(obj))
    }
 
-   const minusOnePizzas = (obj) => {
+   const minusOnePizzas = (obj: IdAndTypeOfItem) => {
       dispatch(removeOnePizza(obj))
    }
 
-   const deleteTypePizza = (obj) => {
-      if (window.confirm('Ви впевнені що хочете видалити піци?')) {
-         dispatch(removeTypePizza(obj))
-      }
+   const deleteTypePizza = (obj: IdAndTypeOfItem) => {
+      dispatch(removeTypePizza(obj))
    }
 
    return (
@@ -28,7 +35,7 @@ function CartBlock({ id, imageUrl, price, title, type, count }) {
                <img src={imageUrl} alt="" className="cart-block__img-pizza" width={80} height={80} />
                <div className="cart-block__text">
                   <h3 className="cart-block__tittle">{title}</h3>
-                  <p className="cart-block__description">{types[type]} тісто</p>
+                  <p className="cart-block__description">{types[+type]} тісто</p>
                </div>
             </div>
             <div className="cart-block__counted-price-delete">

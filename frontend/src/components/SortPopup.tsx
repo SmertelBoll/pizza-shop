@@ -1,30 +1,31 @@
 import React, { useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { setSort } from '../redux/slices/filterSlice'
+import { setSort, SortByType } from '../redux/slices/filterSlice'
+import { RootState } from '../redux/store'
 
 
-function SortPopup() {
+const sortLabel: SortByType[] = [
+   {
+      popupName: 'популярності',
+      backendName: 'rating'
+   },
+   {
+      popupName: 'ціні',
+      backendName: 'price'
+   },
+   {
+      popupName: 'алфавіту',
+      backendName: 'title'
+   }
+]
+
+const SortPopup: React.FC = () => {
    const dispatch = useDispatch()
-   const sortRef = useRef()
+   const sortRef = useRef<HTMLDivElement>(null)
 
-   let sortLabel = [
-      {
-         popupName: 'популярності',
-         backendName: 'rating'
-      },
-      {
-         popupName: 'ціні',
-         backendName: 'price'
-      },
-      {
-         popupName: 'алфавіту',
-         backendName: 'title'
-      }
-   ]
+   const activeLabelPopup = useSelector((state: RootState) => state.filter.sortBy.popupName)
 
-   const activeLabelPopup = useSelector(state => state.filter.sortBy.popupName)
-
-   const setActiveLabel = (obj) => {
+   const setActiveLabel = (obj: SortByType) => {
       dispatch(setSort(obj))
       setVisiblePopup(false)
    }
@@ -36,8 +37,9 @@ function SortPopup() {
    }
 
    React.useEffect(() => {
-      const catchClickOutside = event => {
-         if (!event.path.includes(sortRef.current)) {
+      const catchClickOutside = (event: MouseEvent) => {
+         const _event = event as MouseEvent & { path: Node[] }
+         if (sortRef.current && !_event.path.includes(sortRef.current)) {   // перевіряємо sortRef.current бо TS дає помилку
             setVisiblePopup(false)
          }
 

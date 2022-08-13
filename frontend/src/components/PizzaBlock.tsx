@@ -1,13 +1,22 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { addPizzasFromHome } from '../redux/slices/cartSlice';
+import { RootState } from '../redux/store';
 
 
-function PizzaBlock({ id, imageUrl, price, title, types }) {
+type PizzaBlockProps = {
+   id: string,
+   imageUrl: string,
+   price: number,
+   title: string,
+   types: number[]
+}
+
+const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, imageUrl, price, title, types }) => {
    const dispatch = useDispatch()
    const type = ["тонка", "традиційна"]
 
-   let addedPizza = useSelector(state => state.cart.itemsCart[id])
+   let addedPizza = useSelector((state: RootState) => state.cart.itemsCart[id])
    let numberOfPizza = 0
 
    if (addedPizza) {
@@ -24,7 +33,7 @@ function PizzaBlock({ id, imageUrl, price, title, types }) {
          imageUrl,
          price,
          title,
-         type: activeType,
+         type: String(activeType),
       }))
    }
 

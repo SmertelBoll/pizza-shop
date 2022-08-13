@@ -2,10 +2,12 @@ import React, { useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectFilterCategoryId, setCategory } from '../redux/slices/filterSlice';
 
-function Category() {
+
+const category = ["Всі", "М'ясні", "Вегетеріанські", "Гриль", "Гострі"];
+
+const Category: React.FC = () => {
    const dispatch = useDispatch()
-   const category = ["Всі", "М'ясні", "Вегетеріанські", "Гриль", "Гострі"];
-   const categoryRef = useRef()
+   const categoryRef = useRef<HTMLDivElement>(null)
 
    const [visiblePopup, setVisiblePopup] = useState(false)
 
@@ -14,8 +16,9 @@ function Category() {
    }
 
    React.useEffect(() => {
-      const catchClickOutside = event => {
-         if (!event.path.includes(categoryRef.current)) {
+      const catchClickOutside = (event: MouseEvent) => {
+         const _event = event as MouseEvent & { path: Node[] }
+         if (categoryRef.current && !_event.path.includes(categoryRef.current)) {   // перевіряємо categoryRef.current бо TS дає помилку
             setVisiblePopup(false)
          }
 
@@ -29,7 +32,7 @@ function Category() {
 
    const activeLabelId = useSelector(selectFilterCategoryId)
 
-   const setActiveLabelId = (id) => {
+   const setActiveLabelId = (id: number) => {
       dispatch(setCategory(id))
       setVisiblePopup(false)
    }

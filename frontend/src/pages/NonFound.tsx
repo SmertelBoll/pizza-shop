@@ -1,6 +1,6 @@
 import React from 'react'
 
-function NonFound() {
+const NonFound: React.FC = () => {
    return (
       <div className="non-found">
          <h2 className="non-found__header">Нічого не знайдено 😕</h2>

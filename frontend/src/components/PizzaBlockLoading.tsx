@@ -1,7 +1,7 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
 
-const PizzaBlockLoading = (props) => (
+const PizzaBlockLoading = () => (
    <ContentLoader
       speed={2}
       width={280}
@@ -9,7 +9,6 @@ const PizzaBlockLoading = (props) => (
       viewBox="0 0 280 420"
       backgroundColor="#f3f3f3"
       foregroundColor="#ecebeb"
-      {...props}
    >
       <circle cx="140" cy="125" r="125" />
       <rect x="40" y="270" rx="7" ry="7" width="200" height="24" />

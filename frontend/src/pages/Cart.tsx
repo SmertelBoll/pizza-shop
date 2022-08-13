@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeAllPizzas, selectCart } from '../redux/slices/cartSlice';
 
+import emptyCart from '../assets/img/cart_empty-cart.svg';
+import cartIcon from '../assets/img/cart_cart-icon.svg';
 
-function Cart() {
+
+const Cart: React.FC = () => {
    const dispatch = useDispatch()
    const { itemsCart, totalCount, totalPrice } = useSelector(selectCart)
 
@@ -14,13 +17,15 @@ function Cart() {
          dispatch(removeAllPizzas())
       }
    }
+   console.log(itemsCart);
+
    return (
       <div className="cart">
          {Object.keys(itemsCart).length !== 0
             ? <div>
                <div className="cart__header">
                   <div className="cart__img-and-tittle">
-                     <img src="img/cart_cart-icon.svg" alt="" className="cart__img-cart" width={29} height={29} />
+                     <img src={cartIcon} alt="" className="cart__img-cart" width={29} height={29} />
                      <h2 className="cart__tittle">Корзина</h2>
                   </div>
                   <button onClick={deleteAllPizzas} className="cart__delete-cart">
@@ -74,7 +79,7 @@ function Cart() {
                   <p>Для того, щоб заказати піцу, перейдіть на головну сторінку</p>
                </div>
 
-               <img src="img/cart_empty-cart.svg" alt="" className="cart-empty__empty-img" width="300" height="255" />
+               <img src={emptyCart} alt="" className="cart-empty__empty-img" width="300" height="255" />
                <br />
                <Link to="/">
                   <button className="cart-empty__button">

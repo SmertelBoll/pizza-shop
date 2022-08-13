@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectCart } from '../redux/slices/cartSlice';
 
+import buttonIcon from '../assets/img/header-button_cart-icon.svg'
 
-function Button() {
+const Button: React.FC = () => {
    const { totalCount, totalPrice } = useSelector(selectCart)
 
    return (
@@ -12,7 +13,7 @@ function Button() {
          <button className="header-button">
             <div className="header-button__price">{totalPrice} ₴</div>
             <div className="header-button__number-and-icon">
-               <img src="img/header-button_cart-icon.svg" alt="" className="header-button__icon" width={16} height={16} />
+               <img src={buttonIcon} alt="" className="header-button__icon" width={16} height={16} />
                <p className="header-button__number">{totalCount}</p>
             </div>
          </button>

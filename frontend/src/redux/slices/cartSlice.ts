@@ -1,19 +1,38 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { RootState } from './../store';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-const initialState = {
+export type IdAndTypeOfItem = {
+   id: string,
+   type: string,
+}
+
+type ItemCartType = {
+   imageUrl: string;
+   price: number;
+   title: string;
+   count: number;
+}
+
+interface CartSliceType {
+   itemsCart: Record<string, Record<string, ItemCartType>>
+   totalCount: number,
+   totalPrice: number,
+}
+
+const initialState: CartSliceType = {
    itemsCart: {},  // { id1: { t0: {imageUrl, price, title, count}, t1: {} },    id2: { t0: {}, t1: {} }, }    t - type
    totalCount: 0,
    totalPrice: 0,
 }
 
-const calculationPriceAndCount = (state) => {
+const calculationPriceAndCount = (state: CartSliceType) => {
    let count = 0
    let price = 0
 
-   let idArray = Object.keys(state.itemsCart)
+   let idArray: string[] = Object.keys(state.itemsCart)
    if (idArray.length !== 0) {
       idArray.map(id => {
-         let typeArray = Object.keys(state.itemsCart[id])
+         let typeArray: string[] = Object.keys(state.itemsCart[id])
          typeArray.map(type => {
             count += state.itemsCart[id][type].count
             price += state.itemsCart[id][type].price * state.itemsCart[id][type].count
@@ -28,7 +47,13 @@ export const cartSlice = createSlice({
    name: 'cart',
    initialState,
    reducers: {
-      addPizzasFromHome: (state, action) => {
+      addPizzasFromHome: (state, action: PayloadAction<{
+         id: string,                                       //! зробити оптиціональним вище
+         imageUrl: string,
+         price: number,
+         title: string,
+         type: string,
+      }>) => {
          if (state.itemsCart[action.payload.id]) {                               // є така піца і її тип
             if (state.itemsCart[action.payload.id][action.payload.type]) {
                state.itemsCart[action.payload.id][action.payload.type].count += 1
@@ -54,17 +79,17 @@ export const cartSlice = createSlice({
 
          [state.totalCount, state.totalPrice] = calculationPriceAndCount(state)
       },
-      addOnePizza: (state, action) => {
+      addOnePizza: (state, action: PayloadAction<IdAndTypeOfItem>) => {
          state.itemsCart[action.payload.id][action.payload.type].count += 1;
 
          [state.totalCount, state.totalPrice] = calculationPriceAndCount(state)
       },
-      removeOnePizza: (state, action) => {
+      removeOnePizza: (state, action: PayloadAction<IdAndTypeOfItem>) => {
          state.itemsCart[action.payload.id][action.payload.type].count -= 1;
 
          [state.totalCount, state.totalPrice] = calculationPriceAndCount(state)
       },
-      removeTypePizza: (state, action) => {
+      removeTypePizza: (state, action: PayloadAction<IdAndTypeOfItem>) => {
          if (Object.keys(state.itemsCart[action.payload.id]).length > 1) {
             delete state.itemsCart[action.payload.id][action.payload.type];
          } else {
@@ -73,7 +98,7 @@ export const cartSlice = createSlice({
 
          [state.totalCount, state.totalPrice] = calculationPriceAndCount(state)
       },
-      removeAllPizzas: (state, action) => {
+      removeAllPizzas: (state) => {
          state.itemsCart = {};
          [state.totalCount, state.totalPrice] = [0, 0]
       },
@@ -81,7 +106,7 @@ export const cartSlice = createSlice({
    },
 })
 
-export const selectCart = state => state.cart
+export const selectCart = (state: RootState) => state.cart
 
 export const { addPizzasFromHome, addOnePizza, removeOnePizza, removeTypePizza, removeAllPizzas } = cartSlice.actions
 
