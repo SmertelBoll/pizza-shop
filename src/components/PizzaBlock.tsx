@@ -38,7 +38,7 @@ const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, imageUrl, price, title, typ
    }
 
    return (
-      <div className="wrapper-piza-block">
+      <div className="wrapper-pizza-block">
          <div className="pizza-block">
             <img src={imageUrl} alt="" className="pizza-block__img" width={260} height={260} />
             <h3 className="pizza-block__title">{title}</h3>
