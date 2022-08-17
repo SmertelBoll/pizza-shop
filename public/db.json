@@ -12,7 +12,7 @@
             40
          ],
          "price": 245,
-         "category": 3,
+         "category": 2,
          "rating": 6
       },
       {
@@ -28,13 +28,13 @@
             40
          ],
          "price": 275,
-         "category": 2,
+         "category": 1,
          "rating": 2
       },
       {
          "id": "9",
          "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/30367198-f3bd-44ed-9314-6f717960da07.jpg",
-         "title": "овочі і гриби 🌱",
+         "title": "Овочі і гриби 🌱",
          "types": [
             0,
             1
@@ -45,7 +45,7 @@
             40
          ],
          "price": 285,
-         "category": 1,
+         "category": 2,
          "rating": 7
       },
       {
@@ -60,7 +60,7 @@
             40
          ],
          "price": 280,
-         "category": 1,
+         "category": 3,
          "rating": 4
       },
       {
@@ -77,7 +77,7 @@
             40
          ],
          "price": 450,
-         "category": 5,
+         "category": 1,
          "rating": 10
       },
       {
@@ -94,7 +94,7 @@
             40
          ],
          "price": 315,
-         "category": 3,
+         "category": 4,
          "rating": 8
       },
       {
@@ -111,7 +111,7 @@
             40
          ],
          "price": 450,
-         "category": 4,
+         "category": 2,
          "rating": 10
       },
       {
@@ -126,7 +126,7 @@
             40
          ],
          "price": 580,
-         "category": 2,
+         "category": 4,
          "rating": 2
       },
       {
@@ -160,7 +160,7 @@
             40
          ],
          "price": 500,
-         "category": 1,
+         "category": 4,
          "rating": 4
       }
    ]
