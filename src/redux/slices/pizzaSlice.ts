@@ -19,7 +19,7 @@ export const fetchPizzas = createAsyncThunk<PizzaItemType[], { categoryId: numbe
    'pizza/fetchPizzasStatus',
    async (params) => {
       const { categoryId, sortBy } = params
-      const res = await axios.get<PizzaItemType[]>(`http://626d16545267c14d5677d9c2.mockapi.io/items?${categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${sortBy}`)
+      const res = await axios.get<PizzaItemType[]>(`/pizzas?${categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${sortBy}`) //http://localhost:3001
       return res.data
    })
 

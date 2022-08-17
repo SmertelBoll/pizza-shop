@@ -1,10 +1,11 @@
 import React from 'react'
+import logo from '../assets/img/logo.png'
 
 const Footer: React.FC = () => {
    return (
       <footer className="footer">
          <div className="footer__logo-and-text">
-            <img src="img/logo.png" alt="" width={38} height={38} />
+            <img src={logo} alt="" width={38} height={38} />
             <p>перша доставка<br />безплатно</p>
          </div>
          <div className="footer__info">
