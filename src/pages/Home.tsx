@@ -34,7 +34,6 @@ const Home: React.FC = () => {
          </div>
          <h2 className="home__label">Всі піци</h2>
          <div className="home__pizzas">
-            <PizzaBlockLoading />
             {
                isLoaded
                   ? items.map((obj) => (
